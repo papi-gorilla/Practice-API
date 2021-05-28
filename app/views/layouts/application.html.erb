@@ -11,6 +11,6 @@
 
   <body>
     <%= yield %>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWxfFhLbK1vkuwAvn2bd_rboSEtcPJeEg&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MapAPI'] %>&callback=initMap" async defer></script>
   </body>
 </html>
