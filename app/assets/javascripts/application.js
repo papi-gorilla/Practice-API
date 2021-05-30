@@ -12,33 +12,14 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 
-// gem使用しない場合
-// let map
-// let geocoder
+function initMap(){
+  var geocoder = new google.maps.Geocoder()
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 35.6585, lng: 139.7486 },
+    zoom: 9,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+}
 
-// function initMap(){
-//   geocoder=new google.maps.Geocoder()
-//   map = new google.maps.Map(document.getElementById('map'), {
-//   center: {lat: -34.397, lng: 150.644},
-//   zoom: 8
-//   });
-// }
-
-// function codeAddress(){
-
-//   let inputAddress = document.getElementById('address').value;
-//   geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-//     if (status == 'OK') {
-//       map.setCenter(results[0].geometry.location);
-//       var marker = new google.maps.Marker({
-//           map: map,
-//           position: results[0].geometry.location
-//       });
-//     } else {
-//       alert('Geocode was not successful for the following reason: ' + status);
-//     }
-//   });
-// }
