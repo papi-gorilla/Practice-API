@@ -14,3 +14,32 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+function initMap(){
+  var DS = new google.maps.DirectionsService();
+  var DR = new google.maps.DirectionsRenderer();
+
+  // Google mapの表示
+  var map = new google.maps.Map(document.getElementById("map"),{
+    center: {lat: 35.170981, lng: 136.881556},
+    zoom: 15,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+
+  DR.setMap(map);
+
+  document.getElementById("btn").onclick = function(){
+    var from = document.getElementById("from").value;
+    var to = document.getElementById("to").value;
+
+    var request = {
+      origin: from,
+      destination: to,
+      travelMode: google.maps.TravelMode.WALKING
+    };
+
+    DS.route(request, function(result, status){
+      DR.setDirections(result);
+    });
+  }
+}
