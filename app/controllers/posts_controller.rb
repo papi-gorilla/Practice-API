@@ -8,8 +8,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts=Post.all
-
+    @post=Post.all
+    gon.post = @post
   end
 
   def show
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:name, :content)
+    params.require(:post).permit(:name, :address)
   end
 
 end
