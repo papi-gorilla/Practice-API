@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_28_165300) do
+ActiveRecord::Schema.define(version: 2021_05_30_163911) do
+
+  create_table "goals", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "plan_id"
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string "name"
@@ -22,12 +33,32 @@ ActiveRecord::Schema.define(version: 2021_05_28_165300) do
     t.float "longitude"
   end
 
+  create_table "starts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "plan_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "waypoints", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "plan_id"
+    t.string "point1"
+    t.string "point2"
+    t.string "point3"
+    t.string "point4"
+    t.string "point5"
+    t.string "point6"
+    t.string "point7"
+    t.string "point8"
   end
 
 end

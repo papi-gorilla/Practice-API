@@ -27,14 +27,18 @@ function initMap(){
 
   DR.setMap(map);
 
-  document.getElementById("btn").onclick = function(){
+  document.getElementById("route-btn").onclick = function(){
     var from = document.getElementById("from").value;
     var to = document.getElementById("to").value;
+    var middle1 = document.getElementById("middle1").value;
 
     var request = {
       origin: from,
       destination: to,
-      travelMode: google.maps.TravelMode.WALKING
+      waypoints: [
+          { location: middle1 },
+        ],
+      travelMode: google.maps.TravelMode.DRIVING
     };
 
     DS.route(request, function(result, status){
