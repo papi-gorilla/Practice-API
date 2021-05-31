@@ -27,15 +27,23 @@ function initMap(){
 
   DR.setMap(map);
 
-  document.getElementById("route-btn").onclick = function(){
+  document.getElementById("route-btn").onclick = function search(){
+    var wayptslist = document.getElementById("waypoint-list");
+    var waypts = wayptslist.childNodes;
+    waypoints = [];
+
     var from = document.getElementById("from").value;
     var to = document.getElementById("to").value;
+
+
+    for (var u = 0; u<waypts.length; u++){
+      waypoints.push({location: waypts[u].value, stopover: true});
+    }
 
     var request = {
       origin: from,
       destination: to,
-      waypoints: [
-        ],
+      waypoints: waypoints,
       travelMode: google.maps.TravelMode.DRIVING
     };
 
@@ -43,6 +51,21 @@ function initMap(){
       DR.setDirections(result);
     });
   }
+  // document.getElementById("route-btn").onclick = function(){
+  //   var from = document.getElementById("from").value;
+  //   var to = document.getElementById("to").value;
+  //   var waypoint = document.getElementById("input_data.id")
+
+  //   var request = {
+  //     origin: from,
+  //     destination: to,
+  //     travelMode: google.maps.TravelMode.DRIVING
+  //   };
+
+  //   DS.route(request, function(result, status){
+  //     DR.setDirections(result);
+  //   });
+  // }
 }
 
 var i = 1;
@@ -51,8 +74,8 @@ function addForm(){
     var input_data = document.createElement("input");
     input_data.type = "text";
     input_data.id = "inputform_"+ i;
-     var parent = document.getElementById("waypoint-list");
-     parent.appendChild(input_data);
+      var parent = document.getElementById("waypoint-list");
+      parent.appendChild(input_data);
     i++ ;
   };
 }
