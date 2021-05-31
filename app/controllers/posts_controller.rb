@@ -8,8 +8,6 @@ class PostsController < ApplicationController
   end
 
   def index
-    @post=Post.all
-    gon.post = @post
   end
 
   def show

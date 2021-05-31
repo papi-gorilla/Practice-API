@@ -30,13 +30,11 @@ function initMap(){
   document.getElementById("route-btn").onclick = function(){
     var from = document.getElementById("from").value;
     var to = document.getElementById("to").value;
-    var middle1 = document.getElementById("middle1").value;
 
     var request = {
       origin: from,
       destination: to,
       waypoints: [
-          { location: middle1 },
         ],
       travelMode: google.maps.TravelMode.DRIVING
     };
@@ -45,4 +43,16 @@ function initMap(){
       DR.setDirections(result);
     });
   }
+}
+
+var i = 1;
+function addForm(){
+  if (i < 9){
+    var input_data = document.createElement("input");
+    input_data.type = "text";
+    input_data.id = "inputform_"+ i;
+     var parent = document.getElementById("waypoint-list");
+     parent.appendChild(input_data);
+    i++ ;
+  };
 }
