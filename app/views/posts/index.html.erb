@@ -1,5 +1,24 @@
-<h1>投稿一覧画面</h1>
-<% @posts.each do |post| %>
-  <%= post.name %><br />
-  <%= post.content %>
-<% end %>
+<h2>gmap</h2>
+
+<div class="box">
+  <div id="map"></div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MapAPI'] %>&callback=initMap" async defer></script>
+
+  <div class="form">
+    <label>
+      <input type="text" id="from" value="出発地">
+    </label><br>
+
+    <label>
+      <div id="waypoint-list"></div>
+      <input type="button" id="waypoint-btn" value="＋" onclick="addForm()"><br>
+    </label>
+
+    <label>
+      <input type="text" id="to" value="到着地">
+    </label>
+
+    <input type="button" id="route-btn" value="ルートを表示">
+  </div>
+
+</div>

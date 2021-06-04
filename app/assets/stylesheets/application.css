@@ -16,5 +16,9 @@
 
 #map{
   height: 500px;
-  width: 1000px
+  width: 800px
+}
+
+.box{
+  display: flex
 }
